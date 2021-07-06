@@ -1,16 +1,11 @@
-import React from 'react';
-import './App.css';
-import episodes from './episodes.json'
+import AllEpisodes from "./components/AllEpisodes";
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
-
+      <AllEpisodes/>
     </div>
   );
 }
 
 export default App;
-
-console.log(`Imported ${episodes.length} episode(s)`);
-console.log(`First episode's name is ${episodes[0].name}`);
