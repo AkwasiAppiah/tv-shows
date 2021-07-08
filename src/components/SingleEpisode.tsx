@@ -28,7 +28,7 @@ const SingleEpisode = ({ name,season,number,image,summary,runtime }: singleEpiso
     <section>
       <h1>{name}</h1>
       <p>
-        {season < 10 ? `S0${season}` : `S${season}`}
+        {season < 10 ? `S0${season} ` : `S${season} `}
         {number < 10 ? `E0${number}` : `E${number}`}
       </p>
       <img src={image.medium} alt={name} />
