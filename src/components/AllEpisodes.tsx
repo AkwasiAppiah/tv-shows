@@ -12,7 +12,9 @@ const AllEpisodes = (): JSX.Element => {
   return (
     <>
       <SearchBar search={search} setSearch={setSearch} />
-      <p><DropdownBox eds = {episodes}/></p>
+      <p>
+        <DropdownBox eds={episodes} />
+      </p>
       <hr></hr>
       <div className="episodes">
         {filteredEpisodes.map((ep) => (
