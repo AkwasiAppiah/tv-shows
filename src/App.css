@@ -44,10 +44,21 @@ body {
     height: 50px;
   }
 
-  .App {
+  /* .App {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-   
+  } */
+
+  .searchcontainer  {
+    border: 2px solid grey;
+    position: absolute;
+
+  }
+
+  .episodes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
 
   }

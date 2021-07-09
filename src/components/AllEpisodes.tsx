@@ -1,41 +1,24 @@
 import SingleEpisode from "./SingleEpisode";
 import episodes from "./episodes.json";
 import { useState } from "react";
+import { SearchBar } from "./Searchbar";
+import { searchFunction } from "../utils/searchfunction";
 
 const AllEpisodes = (): JSX.Element => {
   const [search, setSearch] = useState("");
-
+  
+  const filteredEpisodes = searchFunction({search,episodes})
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={search}
-        onChange={(event) => {
-          setSearch(event.target.value);
-        }}
-      />
-
-      {episodes.filter((episode) => {
-        if (search === "") {
-          return episode;
-        } else if (
-          episode.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || episode.summary.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-        ) {
-          return episode;
-        }
-      }).map((ep, key) => (
-        <div key={key}>
-          <SingleEpisode
-            name={ep.name}
-            season={ep.season}
-            number={ep.number}
-            runtime={ep.runtime}
-            image={ep.image}
-            summary={ep.summary}
-          />
+      <SearchBar search={search} setSearch={setSearch} />
+      <hr></hr>
+  <div className = 'episodes'>   
+      {filteredEpisodes.map((ep) => (
+        <div>
+          <SingleEpisode ep = {ep} />
         </div>
       ))}
+      </div>
     </>
   );
 };

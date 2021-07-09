@@ -1,39 +1,21 @@
 // import { Url } from 'url';
 
-interface singleEpisodeProp {
-  // id: number;
-  // url: string;
-    name: string;
-    season: number;
-    number: number;
-  //   type: string;
-  //   airdate: string;
-  //   airtime: string;
-  //   airstamp: string;
-    runtime: number;
-    image: {
-      medium: string;
-      original: string;
-    };
-    summary: string;
-  //   links: {
-  //     self: {
-  //       href: string;
-  //     };
-  // };
-}
+import {singleEpisodeProp} from "../utils/Interfaces";
 
-const SingleEpisode = ({ name,season,number,image,summary,runtime }: singleEpisodeProp): JSX.Element => {
+const SingleEpisode = ({
+ ep
+}: singleEpisodeProp): JSX.Element => {
   return (
     <section>
-      <h1>{name}</h1>
+      <h1>{ep.name}</h1>
       <p>
-        {season < 10 ? `S0${season} ` : `S${season} `}
-        {number < 10 ? `E0${number}` : `E${number}`}
+        {ep.season < 10 ? `S0${ep.season} ` : `S${ep.season} `}
+        {ep.number < 10 ? `E0${ep.number}` : `E${ep.number}`} 
+        , ID : {ep.id}
       </p>
-      <img src={image.medium} alt={name} />
-      <p>{summary.replace(/<p>|<\/p>/g, "")}</p>
-      <p>{runtime} minutes</p>
+      <img src={ep.image.medium} alt={ep.name} />
+      <p>{ep.summary.replace(/<p>|<\/p>/g, "")}</p>
+      <p>{ep.runtime} minutes</p>
     </section>
   );
 };
