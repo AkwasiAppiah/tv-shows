@@ -38,3 +38,7 @@ export interface searchFunctionProps {
 export interface singleEpisodeProp {
   ep: IEpisode;
 }
+
+export interface dropdownProps {
+  eds: IEpisode[];
+}
