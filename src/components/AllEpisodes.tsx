@@ -17,7 +17,9 @@ const AllEpisodes = (): JSX.Element => {
       <p>
         <DropdownBox eds={filteredEpisodes} />
       </p>
-      <p><NumofEpisodes eds = {filteredEpisodes} episodes = {episodes}/></p>
+      <p>
+        <NumofEpisodes eds={filteredEpisodes} episodes={episodes} />
+      </p>
       <hr></hr>
       <div className="episodes">
         {filteredEpisodes.map((ep) => (
