@@ -5,8 +5,10 @@ export const NumofEpisodes = ({
   episodes,
 }: numofEpisodesProp): JSX.Element => {
   return (
-    <p>
-      {eds.length},{episodes.length}
-    </p>
+    <div>
+      <p>
+        {eds.length},{episodes.length}
+      </p>
+    </div>
   );
 };
