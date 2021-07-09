@@ -40,5 +40,10 @@ export interface singleEpisodeProp {
 }
 
 export interface dropdownProps {
-  eds: IEpisode []
+  eds: IEpisode[];
+}
+
+export interface numofEpisodesProp {
+  eds: IEpisode[];
+  episodes: IEpisode[];
 }

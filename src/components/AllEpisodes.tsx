@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SearchBar } from "./Searchbar";
 import { searchFunction } from "../utils/searchfunction";
 import { DropdownBox } from "./DropdownBox";
+import { NumofEpisodes } from "./NumofEpisodes";
 
 const AllEpisodes = (): JSX.Element => {
   const [search, setSearch] = useState("");
@@ -14,8 +15,9 @@ const AllEpisodes = (): JSX.Element => {
     <>
       <SearchBar search={search} setSearch={setSearch} />
       <p>
-        <DropdownBox eds={filteredEpisodes}/>
+        <DropdownBox eds={filteredEpisodes} />
       </p>
+      <p><NumofEpisodes eds = {filteredEpisodes} episodes = {episodes}/></p>
       <hr></hr>
       <div className="episodes">
         {filteredEpisodes.map((ep) => (
