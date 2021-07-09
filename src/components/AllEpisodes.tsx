@@ -7,13 +7,14 @@ import { DropdownBox } from "./DropdownBox";
 
 const AllEpisodes = (): JSX.Element => {
   const [search, setSearch] = useState("");
+  // const [dropDown, setDropDown] = useState("")
 
   const filteredEpisodes = searchFunction({ search, episodes });
   return (
     <>
       <SearchBar search={search} setSearch={setSearch} />
       <p>
-        <DropdownBox eds={episodes} />
+        <DropdownBox eds={filteredEpisodes}/>
       </p>
       <hr></hr>
       <div className="episodes">
