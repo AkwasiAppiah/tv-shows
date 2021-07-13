@@ -41,8 +41,8 @@ export interface singleEpisodeProp {
 
 export interface dropdownProps {
   eds: IEpisode[];
-  dropDownState: string; 
-  setdropDownState(dropdownState:string): void;
+  dropDownState: string;
+  setdropDownState(dropdownState: string): void;
 }
 
 export interface numofEpisodesProp {
@@ -52,5 +52,5 @@ export interface numofEpisodesProp {
 
 export interface dropDownFilterProps {
   dropDownState: string;
-  episodes:IEpisode[]
+  episodes: IEpisode[];
 }
