@@ -1,13 +1,22 @@
 import { dropdownProps } from "../utils/Interfaces";
 
-export const DropdownBox = ({ eds }: dropdownProps): JSX.Element => {
+export const DropdownBox = ({
+  eds,
+  dropDownState,
+  setdropDownState,
+}: dropdownProps): JSX.Element => 
+{
+    console.log({dropDownState})
   return (
-    <>
       <>
-        <select id="episodes">
+        <select
+          id=""
+          value={dropDownState}
+          onChange={(e) => {setdropDownState(e.target.value);}}
+        >
           {eds.map((episode) => (
-            <option>
-              {episode.name},{" "}
+            <option value={episode.id}>
+              {episode.name},
               {episode.season < 10
                 ? `S0${episode.season}`
                 : `S${episode.season}`}
@@ -18,6 +27,5 @@ export const DropdownBox = ({ eds }: dropdownProps): JSX.Element => {
           ))}
         </select>
       </>
-    </>
   );
 };

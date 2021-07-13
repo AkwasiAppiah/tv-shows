@@ -10,19 +10,3 @@ export function searchFunction({
       episode.summary.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   );
 }
-
-// episodes
-//         .filter((episode) => {
-//           if (search === "") {
-//             return episode;
-//           } else if (
-//             episode.name
-//               .toLocaleLowerCase()
-//               .includes(search.toLocaleLowerCase()) ||
-//             episode.summary
-//               .toLocaleLowerCase()
-//               .includes(search.toLocaleLowerCase())
-//           ) {
-//             return episode;
-//           }
-//         })
