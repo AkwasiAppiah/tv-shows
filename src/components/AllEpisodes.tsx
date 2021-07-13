@@ -1,4 +1,6 @@
 import SingleEpisode from "./SingleEpisode";
+import { useEffect } from "react";
+import { IEpisode } from "../utils/Interfaces";
 import episodes from "./episodes.json";
 import { useState } from "react";
 import { SearchBar } from "./Searchbar";
@@ -10,16 +12,29 @@ import { dropdownfunction } from "../utils/dropdownfunction";
 const AllEpisodes = (): JSX.Element => {
   const [search, setSearch] = useState("");
   const [dropDownState, setdropDownState] = useState("");
+  const [getEpisodes, setgetEpisodes] = useState <IEpisode []> ([])
 
-  const handleResetbutton = () => setdropDownState("");
+  useEffect(() => {
+    const fetchEpisodes = async () => {
+      const response = await fetch(
+        "https://api.tvmaze.com/shows/82/episodes"
+      );
+      const jsonBody: IEpisode [] = await response.json();
+      setgetEpisodes(jsonBody)
+      console.log({jsonBody})
+    }
+    fetchEpisodes();
+  }, [])
 
-  let filteredEpisodes;
+console.log(getEpisodes)
 
-  if (dropDownState !== "") {
-    filteredEpisodes = dropdownfunction({ dropDownState, episodes });
-  } else {
-    filteredEpisodes = searchFunction({ search, episodes });
-  }
+  // https://api.tvmaze.com/shows/82/episodes
+
+const handleResetbutton = () => setdropDownState("");
+
+let filteredEpisodes = [];
+
+dropDownState !== "" ? filteredEpisodes = dropdownfunction({dropDownState, episodes: getEpisodes}) : filteredEpisodes = searchFunction({search, episodes: getEpisodes});
 
   return (
     <>

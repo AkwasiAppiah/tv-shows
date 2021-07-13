@@ -32,7 +32,7 @@ export interface searchProps {
 
 export interface searchFunctionProps {
   search: string;
-  episodes: IEpisode[];
+  episodes: IEpisode[];  
 }
 
 export interface singleEpisodeProp {
@@ -52,5 +52,5 @@ export interface numofEpisodesProp {
 
 export interface dropDownFilterProps {
   dropDownState: string;
-  episodes: IEpisode[];
+  episodes: IEpisode [] 
 }
