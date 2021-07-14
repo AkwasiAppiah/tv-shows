@@ -9,6 +9,7 @@ import { DropdownBox } from "./DropdownBox";
 import { NumofEpisodes } from "./NumofEpisodes";
 import { dropdownfunction } from "../utils/dropdownfunction";
 import { SelectShow } from "./SelectShow";
+import SingleShow from "./SingleShow";
 import shows from "./shows.json";
 
 const AllEpisodes = (): JSX.Element => {
@@ -65,11 +66,7 @@ const AllEpisodes = (): JSX.Element => {
       </p>
       <hr></hr>
       <div className="episodes">
-        {filteredEpisodes.map((ep) => (
-          <div className="singleEpisode">
-            <SingleEpisode ep={ep} />
-          </div>
-        ))}
+        {shows.map((show) => <SingleShow shows = {show}/>)}
       </div>
     </>
   );

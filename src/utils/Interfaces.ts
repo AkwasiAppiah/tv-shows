@@ -112,4 +112,6 @@ export interface showSelectorProps {
   shows: shows[];
 }
 
-export 
+export interface singleShowProp{
+  shows: shows
+}
