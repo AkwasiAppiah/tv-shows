@@ -21,6 +21,57 @@ export interface IEpisode {
   };
 }
 
+export interface shows {
+  name: string;
+  image: {
+    medium: string;
+    original: string;
+  };
+  summary: string;
+  genres: string[];
+  status: string;
+  runtime: number | null;
+  id: number;
+  url: string;
+  type: string;
+  language: string;
+  averageRuntime: number | null;
+  premiered: string | null;
+  officialSite: string | null;
+  schedule: {
+    time: string;
+    days: string[];
+  };
+  rating: {
+    average: number | null;
+  };
+  weight: number;
+  network: {
+    id: number;
+    name: string;
+    country: {
+      name: string;
+      code: string;
+      timezone: string;
+    } | null;
+  } | null;
+  webChannel: {
+    id: number;
+    name: string;
+    country: {
+      name: string;
+      code: string;
+      timezone: string;
+    } | null;
+  } | null;
+  dvdCountry: string | null;
+  externals: {
+    tvrage: number;
+    thetvdb: number | null;
+    imdb: string | null;
+  };
+}
+
 export interface episodeProp {
   episode: IEpisode;
 }
@@ -53,4 +104,10 @@ export interface numofEpisodesProp {
 export interface dropDownFilterProps {
   dropDownState: string;
   episodes: IEpisode [] 
+}
+
+export interface showSelectorProps {
+  showState: string;
+  setShowState(showState:string) : void;
+  shows: shows[]
 }

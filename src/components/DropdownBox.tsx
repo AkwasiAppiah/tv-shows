@@ -5,7 +5,6 @@ export const DropdownBox = ({
   dropDownState,
   setdropDownState,
 }: dropdownProps): JSX.Element => {
-  console.log({ dropDownState });
   return (
     <>
       <select

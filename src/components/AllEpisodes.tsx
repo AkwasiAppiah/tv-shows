@@ -8,27 +8,30 @@ import { searchFunction } from "../utils/searchfunction";
 import { DropdownBox } from "./DropdownBox";
 import { NumofEpisodes } from "./NumofEpisodes";
 import { dropdownfunction } from "../utils/dropdownfunction";
+import { SelectShow } from "./SelectShow";
+import shows from "./shows.json"
 
 const AllEpisodes = (): JSX.Element => {
   const [search, setSearch] = useState("");
   const [dropDownState, setdropDownState] = useState("");
   const [getEpisodes, setgetEpisodes] = useState <IEpisode []> ([])
+  const [showState, setShowState] = useState("");
+
+
 
   useEffect(() => {
     const fetchEpisodes = async () => {
       const response = await fetch(
-        "https://api.tvmaze.com/shows/82/episodes"
+        `https://api.tvmaze.com/shows/${showState}/episodes`
       );
       const jsonBody: IEpisode [] = await response.json();
       setgetEpisodes(jsonBody)
       console.log({jsonBody})
     }
     fetchEpisodes();
-  }, [])
+  }, [showState])
 
-console.log(getEpisodes)
-
-  // https://api.tvmaze.com/shows/82/episodes
+console.log(showState)
 
 const handleResetbutton = () => setdropDownState("");
 
@@ -47,6 +50,7 @@ dropDownState !== "" ? filteredEpisodes = dropdownfunction({dropDownState, episo
         />
         <button onClick={handleResetbutton}> RESET</button>
       </p>
+      <p><SelectShow showState = {showState} setShowState = {setShowState} shows = {shows} /></p>
       <p>
         <NumofEpisodes eds={filteredEpisodes} episodes={episodes} />
       </p>
