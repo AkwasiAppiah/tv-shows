@@ -15,7 +15,7 @@ const AllEpisodes = (): JSX.Element => {
   const [search, setSearch] = useState("");
   const [dropDownState, setdropDownState] = useState("");
   const [getEpisodes, setgetEpisodes] = useState <IEpisode []> ([])
-  const [showState, setShowState] = useState("");
+  const [showState, setShowState] = useState("82");
 
 
 
